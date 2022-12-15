@@ -4,12 +4,14 @@ pragma solidity >=0.7.0 <0.9.0;
 
 contract Pledge {
     string public pl; //the pledge itself, could be a URL or IPFS link?
+    uint public cId; //chain ID this pledge is applicable to
     int public importanceCount = 0;    //this is how important the pledge is, the more that subscriber this count increments
     mapping(address => uint) public subscribersStorage; //this holds the subscribers mapped to their whitelist
     address[] public subscribers ; //a list of sibscribers
 
-    constructor(string memory pledge) {
+    constructor(string memory pledge, uint chainId) {
         pl = pledge;
+        cId = chainId;
     }
     
 
